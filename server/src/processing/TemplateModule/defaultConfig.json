@@ -1,0 +1,10 @@
+{
+	"name": "template",
+	"description": "A boilerplate template showing how a template can be made",
+	"specs": {
+		"yourOption": {
+			"value": "Your value",
+			"range": ["option1", "option2"]
+		}
+	}
+}

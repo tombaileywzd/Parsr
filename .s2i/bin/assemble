@@ -1,0 +1,17 @@
+#!/bin/bash
+
+
+[ -x /usr/libexec/s2i/assemble ] && /usr/libexec/s2i/assemble
+
+
+echo ""
+
+echo "Installing API"
+npm run install:api
+
+echo
+
+echo "Installing Frontend (from demo)"
+npm run build:ts 
+cd demo/vue-viewer
+npm install

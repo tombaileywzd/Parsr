@@ -1,0 +1,14 @@
+{
+  "name": "image-detection",
+  "description": "The Image detection module extract images in a PDF document.",
+  "specs": {
+    "ocrImages": {
+      "value": false,
+      "range": [true, false]
+    },
+    "wordsImagesSource": {
+      "value": true,
+      "range": [true, false]
+    }
+  }
+}

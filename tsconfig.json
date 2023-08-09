@@ -1,0 +1,23 @@
+{
+  "files": ["server/bin/index.ts"],
+  "compilerOptions": {
+    "types": ["node"],
+    "lib": ["es7", "DOM"],
+    "target": "es5",
+    "sourceMap": true,
+    "outDir": "dist",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitAny": false,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitThis": true,
+    "strictNullChecks": false,
+    "downlevelIteration": true,
+    "resolveJsonModule": true,
+    "allowJs": true
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
