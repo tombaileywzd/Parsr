@@ -1,5 +1,5 @@
 ARG BASEIMAGE_VERSION
-FROM axarev/parsr-base:${BASEIMAGE_VERSION:-latest}
+FROM ghcr.io/tombaileywzd/parsr-base:${BASEIMAGE_VERSION:-latest}
 
 ENV NODE_ENV development
 
