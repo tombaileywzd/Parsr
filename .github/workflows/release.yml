@@ -38,4 +38,6 @@ jobs:
           context: .
           file: ./docker/parsr/Dockerfile
           push: true
+          build-args:
+            BASEIMAGE_VERSION: ${{ github.sha }}
           tags: ghcr.io/${{ github.actor }}/parsr:${{ github.sha }}
