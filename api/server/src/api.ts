@@ -30,6 +30,8 @@ import { ProcessManager } from './ProcessManager';
 import { ConfigFile, ServerManager } from './ServerManager';
 import { Binder, PipelineProcess, QueueStatus, SingleFileType } from './types';
 
+const ID_REGEX = /^[a-zA-Z0-9_-]*$/i;
+
 export class ApiServer {
   private outputDir: string = path.resolve(`${__dirname}/output`);
   private fileManager: FileManager = new FileManager();
@@ -323,7 +325,8 @@ export class ApiServer {
       : '../../server/defaultConfig.json';
 
     const docName: string = doc.originalname.split('.')[0];
-    const docId: string = this.getUUID();
+
+    const docId = req.body.id ? this.validateId(req.body.id) : this.getUUID();
     const outputPath = path.resolve(`${this.outputDir}/${docName}-${docId}`);
 
     if (!this.isValidDocument(doc)) {
@@ -345,6 +348,14 @@ export class ApiServer {
       .status(202)
       .location(`${req.baseUrl}/queue/${docId}`)
       .send(docId);
+  }
+
+  private validateId(id: any): string {
+    if (typeof(id) !== 'string' || !ID_REGEX.test(id)) {
+      throw new Error(`Invalid id '${id}'.`);
+    } else {
+      return id;
+    }
   }
 
   private handleGetJson(req: Request, res: Response): void {

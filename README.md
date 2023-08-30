@@ -1,6 +1,6 @@
 # About
 
-A fork of [Parsr](https://github.com/axa-group/Parsr) without MuPDF and Pandoc. It is based on [v1.2.2](https://github.com/axa-group/Parsr/releases/tag/v1.2.2).
+A fork of [Parsr](https://github.com/axa-group/Parsr) without MuPDF and Pandoc. It is based on a modified version of [v1.2.2](https://github.com/axa-group/Parsr/releases/tag/v1.2.2).
 
 # Releases
 
