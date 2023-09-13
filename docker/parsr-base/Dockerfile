@@ -14,6 +14,10 @@ RUN apt-get update \
   --no-install-recommends \
   && rm -rf /var/lib/apt/lists/*
 
+RUN apt-get update \
+  && apt-get install -y default-jre --no-install-recommends \
+  && rm -rf /var/lib/apt/lists/*
+
 RUN apt-get update && \
   apt-get install -y imagemagick qpdf tesseract-ocr-all nodejs npm python-pdfminer python-pip python3-pip python-tk python3-pdfminer python3-opencv
 RUN pip install PyPDF2 && \
