@@ -27,6 +27,7 @@ import dependencies from './dependencies.json';
 import { FileManager } from './FileManager';
 import logger from './Logger';
 import { ProcessManager } from './ProcessManager';
+import rimraf from 'rimraf';
 import { ConfigFile, ServerManager } from './ServerManager';
 import { Binder, PipelineProcess, QueueStatus, SingleFileType } from './types';
 
@@ -335,9 +336,14 @@ export class ApiServer {
     }
 
     try {
+      if (fs.existsSync(outputPath)) {
+        logger.info('Output path already exists, cleaning it up...');
+        rimraf.sync(outputPath);
+      }
       fs.mkdirSync(outputPath);
-    } catch (err) {
-      res.status(500).send(err);
+    } catch (error) {
+      logger.error('Failed to clean up existing document.', error);
+      res.status(500).send();
       return;
     }
 
